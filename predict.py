@@ -18,6 +18,8 @@ from albumentations.pytorch.transforms import ToTensorV2
 import cv2
 import h5py
 import matplotlib.pyplot as plt
+import innvestigate
+import innvestigate.utils as iutils
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--root_path', type=str,
@@ -80,8 +82,9 @@ def predict():
 
 
     model1 = UNet(in_chns=1, class_num=num_classes).cuda()
-    model2 = ViT_seg(config, img_size=args.patch_size,
-                     num_classes=args.num_classes).cuda()
+    print(args.patch_size)
+    model2 = ViT_seg(None, img_size=[224,224],
+                     num_classes=num_classes).cuda()
     
     # model2.load_from(config)
 
@@ -90,6 +93,11 @@ def predict():
     model2.load_state_dict(torch.load("/home/student/SSL4MIS/model/ACDC/Cross_Teaching_Between_CNN_Transformer_7/unet/model2_iter_29400_dice_0.853.pth"))
     model1.eval()
     model2.eval()
+
+    print(model1)
+    print(model2)
+
+
 
     gt = []
     #
@@ -180,7 +188,7 @@ def predict():
             mask_rate[3] = counts[3]/counts_label[3]
         except:
             mask_rate[3] = 0
-
+            
         print(mask_rate)
         
 
@@ -207,14 +215,18 @@ def predict():
         img = torch.tensor(img).unsqueeze(0).unsqueeze(0).cuda()
         img_org = torch.tensor(img_org).unsqueeze(0).unsqueeze(0).cuda()
         img_noise = torch.tensor(img_noise).unsqueeze(0).unsqueeze(0).cuda()
-
+        
         print(mask.shape)
         with torch.no_grad():
             img= img.to(torch.float32)
             img_org = img_org.to(torch.float32)
             img_noise = img_noise.to(torch.float32)
 
+            # a1 = analyzer1.analyze(x)
+            # a2 = analyzer2.analyze(x)
 
+            # iutils.plot_map(a1[0], cmap="bwr")
+            # iutils.plot_map(a2[0], cmap="bwr")
 
             out1org = model1(img_org)
             out1 = model1(img)
