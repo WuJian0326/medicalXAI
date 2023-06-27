@@ -8,18 +8,19 @@ We evaluated two AI medical image segmentation models, the CNN-based model and t
 
 Detailed comparison and methods can be found in the original paper.
 
-![](https://hackmd.io/_uploads/B1YfCuOOn.png)
+<img width="710" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/fb5c0723-5681-4cdd-bd63-1f90e7c247d2">
 
-_Figure 1: Perturbations used to analyze the critical operations of the AI medical image segmentation models_
+
 
 We also analyzed various types of artifacts, such as Gaussian noise, masks, and magnetic susceptibility artifacts, to understand their impact on the model's performance.
 
 To improve the interpretability of these models, we integrated various xAI methods into a user-friendly interface, allowing users to visualize explanations and interact with the models.
 
-![](https://hackmd.io/_uploads/ByY40OuO2.png)
-_Figure 2: Evaluation of the Swin-Unet model on medical image segmentation_
+<img width="710" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/802c5c79-9eb2-4fe9-999c-f3cb6e239897">
 
-![](https://hackmd.io/_uploads/r1eUCO__3.png)
+
+<img width="761" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/6cd58571-4e16-4290-afde-ab29e00d3997">
+
 
 _Figure 3: Interface for comparing the output of an AI medical image segmentation model to the original image under various perturbations_
 
@@ -29,19 +30,21 @@ We observed that perturbation-based approaches improved the interpretability and
 
 Our results demonstrate that Swin-Unet outperforms Unet in terms of performance and robustness under adversarial attacks.
 
-![](https://hackmd.io/_uploads/S1b_0_uu2.png)
+<img width="483" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/6bca643a-99fe-402c-9d5d-d5b5d2e6ddeb">
 
 
-![](https://hackmd.io/_uploads/S1BtCddd3.png)
+
+<img width="483" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/8752b3ae-2541-40c8-9f72-7bc570139a62">
 
 
 
 The magnetic susceptibility artifacts, a common problem in MRI imaging, can significantly impact the accuracy of the models. Our results show that Swin-Unet is more robust than Unet in handling these artifacts.
 
-![](https://hackmd.io/_uploads/SJXoAd_dn.png)
+<img width="705" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/bb05bfb0-7964-47ad-b30f-1ce065e47dea">
 
 
-![](https://hackmd.io/_uploads/ryQ20ud_2.png)
+<img width="634" alt="image" src="https://github.com/WuJian0326/medicalXAI/assets/92918078/b3a23d07-1c15-43dc-9ae7-d000128f8ccc">
+
 
 
 In conclusion, Swin-Unet demonstrated superior performance and robustness under various perturbations, making it a promising model for medical image segmentation.
